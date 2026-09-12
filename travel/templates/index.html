@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="TripSetter AI - Your intelligent multi-agent travel planner"
+    >
+
+    <title>TripSetter AI | Travel Planner</title>
+
+
+    <!-- Main stylesheet -->
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+
+    <!-- Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
+    <!-- PDF -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    ></script>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     BACKGROUND
+     ========================================================= -->
+
+<div class="page-background">
+
+    <div class="background-grid"></div>
+
+    <div class="orb orb-blue"></div>
+
+    <div class="orb orb-purple"></div>
+
+    <div class="orb orb-cyan"></div>
+
+</div>
+
+
+
+<!-- =========================================================
+     NAVBAR
+     ========================================================= -->
+
+<header class="navbar">
+
+    <div class="nav-inner">
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ✈️
+            </div>
+
+            <div class="brand-info">
+
+                <div class="brand-name">
+                    TripSetter
+                </div>
+
+                <div class="brand-subtitle">
+                    AI Travel Planner
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="nav-links">
+
+            <a
+                href="#planner"
+                class="nav-link active"
+            >
+                Plan Trip
+            </a>
+
+            <a
+                href="#how-it-works"
+                class="nav-link"
+            >
+                How It Works
+            </a>
+
+        </nav>
+
+
+        <!-- STATUS -->
+
+        <div class="nav-right">
+
+            <div class="ai-badge">
+
+                <span class="status-dot"></span>
+
+                AI Online
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
+
+<main class="main-container">
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="hero-section">
+
+
+        <div class="hero-badge">
+
+            <span>✦</span>
+
+            Powered by LangGraph Multi-Agent AI
+
+        </div>
+
+
+        <h1 class="hero-title">
+
+            Your next adventure
+
+            <span>
+                starts here.
+            </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Tell TripSetter where you want to go,
+            what you want to experience, and your budget.
+            Our AI agents will build your complete travel plan.
+
+        </p>
+
+
+        <div class="hero-features">
+
+            <div class="hero-feature">
+
+                <span>✈️</span>
+
+                Flights
+
+            </div>
+
+
+            <div class="hero-feature">
+
+                <span>🏨</span>
+
+                Hotels
+
+            </div>
+
+
+            <div class="hero-feature">
+
+                <span>🗺️</span>
+
+                Itineraries
+
+            </div>
+
+
+            <div class="hero-feature">
+
+                <span>💰</span>
+
+                Budget
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PLANNER
+         ===================================================== -->
+
+    <section
+        id="planner"
+        class="planner-card"
+    >
+
+
+        <!-- PLANNER HEADER -->
+
+        <div class="planner-header">
+
+            <div>
+
+                <div class="section-label">
+                    PLAN YOUR JOURNEY
+                </div>
+
+                <h2>
+                    Where do you want to go?
+                </h2>
+
+                <p>
+                    Describe your dream trip and let our AI
+                    agents handle the rest.
+                </p>
+
+            </div>
+
+
+            <div class="planner-status">
+
+                <span class="status-dot"></span>
+
+                Ready to plan
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             DESTINATIONS
+             ================================================= -->
+
+        <div class="destination-section">
+
+            <div class="subsection-title">
+                Popular destinations
+            </div>
+
+
+            <div class="destination-grid">
+
+
+                <button
+                    class="destination-chip"
+                    onclick="useSuggestion('Plan a 7-day trip to Japan from Bangladesh for 2 people including flights, hotels, sightseeing and estimated budget.')"
+                >
+
+                    <span class="destination-icon">
+                        🇯🇵
+                    </span>
+
+                    <span class="destination-name">
+                        Japan
+                    </span>
+
+                    <span class="destination-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="destination-chip"
+                    onclick="useSuggestion('Plan a 5-day Dubai trip from Bangladesh for 2 people including flights, hotels, sightseeing and budget.')"
+                >
+
+                    <span class="destination-icon">
+                        🇦🇪
+                    </span>
+
+                    <span class="destination-name">
+                        Dubai
+                    </span>
+
+                    <span class="destination-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="destination-chip"
+                    onclick="useSuggestion('Plan a 7-day Thailand trip from Bangladesh for 2 people including flights, hotels, beaches, sightseeing and budget.')"
+                >
+
+                    <span class="destination-icon">
+                        🇹🇭
+                    </span>
+
+                    <span class="destination-name">
+                        Thailand
+                    </span>
+
+                    <span class="destination-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="destination-chip"
+                    onclick="useSuggestion('Plan a 6-day Bali trip from Bangladesh for 2 people including flights, hotels, temples, beaches and budget.')"
+                >
+
+                    <span class="destination-icon">
+                        🇮🇩
+                    </span>
+
+                    <span class="destination-name">
+                        Bali
+                    </span>
+
+                    <span class="destination-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="destination-chip"
+                    onclick="useSuggestion('Plan a 7-day Europe trip from Bangladesh for 2 people including affordable flights, hotels, sightseeing and estimated budget.')"
+                >
+
+                    <span class="destination-icon">
+                        🇪🇺
+                    </span>
+
+                    <span class="destination-name">
+                        Europe
+                    </span>
+
+                    <span class="destination-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             TEXT INPUT
+             ================================================= -->
+
+        <div class="input-container">
+
+            <div class="input-label">
+
+                <span>
+                    ✨
+                </span>
+
+                Describe your trip
+
+            </div>
+
+
+            <textarea
+                id="userInput"
+                maxlength="2000"
+                rows="6"
+                placeholder="Example: Plan a 7-day trip to Dubai from Bangladesh for 2 people. I want good hotels, sightseeing, desert safari and a budget around 2 lakhs..."
+            ></textarea>
+
+
+            <div class="input-footer">
+
+                <div class="keyboard-hint">
+
+                    <span class="key">
+                        Ctrl
+                    </span>
+
+                    +
+
+                    <span class="key">
+                        Enter
+                    </span>
+
+                    to generate
+
+                </div>
+
+
+                <div
+                    id="characterCount"
+                    class="character-count"
+                >
+                    0 / 2000
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PREFERENCES
+             ================================================= -->
+
+        <div class="preferences-section">
+
+            <div class="subsection-title">
+                Travel preferences
+            </div>
+
+
+            <div class="preference-list">
+
+
+                <button
+                    class="preference-chip active"
+                    data-value="Budget friendly"
+                    onclick="togglePreference(this)"
+                >
+                    <span>💰</span>
+                    Budget
+                </button>
+
+
+                <button
+                    class="preference-chip"
+                    data-value="Luxury"
+                    onclick="togglePreference(this)"
+                >
+                    <span>💎</span>
+                    Luxury
+                </button>
+
+
+                <button
+                    class="preference-chip"
+                    data-value="Family friendly"
+                    onclick="togglePreference(this)"
+                >
+                    <span>👨‍👩‍👧</span>
+                    Family
+                </button>
+
+
+                <button
+                    class="preference-chip"
+                    data-value="Adventure"
+                    onclick="togglePreference(this)"
+                >
+                    <span>🏔️</span>
+                    Adventure
+                </button>
+
+
+                <button
+                    class="preference-chip"
+                    data-value="Relaxation"
+                    onclick="togglePreference(this)"
+                >
+                    <span>🏖️</span>
+                    Relaxation
+                </button>
+
+
+                <button
+                    class="preference-chip"
+                    data-value="Food and culture"
+                    onclick="togglePreference(this)"
+                >
+                    <span>🍜</span>
+                    Food & Culture
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             GENERATE BUTTON
+             ================================================= -->
+
+        <button
+            id="generateBtn"
+            class="generate-btn"
+            onclick="sendMessage()"
+        >
+
+            <span
+                id="generateIcon"
+                class="generate-icon"
+            >
+                ✨
+            </span>
+
+
+            <span id="generateText">
+                Generate My Trip
+            </span>
+
+
+            <span
+                id="generateLoader"
+                class="button-loader hidden"
+            ></span>
+
+
+            <span class="generate-arrow">
+                →
+            </span>
+
+        </button>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         AI WORKFLOW
+         ===================================================== -->
+
+    <section
+        id="progressSection"
+        class="progress-card hidden"
+    >
+
+
+        <div class="progress-header">
+
+
+            <div class="progress-ai-icon">
+                🧠
+            </div>
+
+
+            <div class="progress-title">
+
+                <h3>
+                    Building your trip
+                </h3>
+
+                <p id="progressMessage">
+                    Understanding your travel requirements...
+                </p>
+
+            </div>
+
+
+            <div class="progress-percent">
+
+                <span id="progressPercentage">
+                    10
+                </span>%
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-track">
+
+            <div
+                id="progressBar"
+                class="progress-bar"
+            ></div>
+
+        </div>
+
+
+        <div class="agent-steps">
+
+
+            <div
+                id="step1"
+                class="agent-step active"
+            >
+
+                <div class="step-circle">
+                    🧠
+                </div>
+
+                <span>
+                    Understand trip
+                </span>
+
+            </div>
+
+
+            <div
+                id="step2"
+                class="agent-step"
+            >
+
+                <div class="step-circle">
+                    ✈️
+                </div>
+
+                <span>
+                    Search flights
+                </span>
+
+            </div>
+
+
+            <div
+                id="step3"
+                class="agent-step"
+            >
+
+                <div class="step-circle">
+                    🏨
+                </div>
+
+                <span>
+                    Find hotels
+                </span>
+
+            </div>
+
+
+            <div
+                id="step4"
+                class="agent-step"
+            >
+
+                <div class="step-circle">
+                    🗺️
+                </div>
+
+                <span>
+                    Build itinerary
+                </span>
+
+            </div>
+
+
+            <div
+                id="step5"
+                class="agent-step"
+            >
+
+                <div class="step-circle">
+                    💰
+                </div>
+
+                <span>
+                    Optimize budget
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         RESULTS
+         ===================================================== -->
+
+    <section
+        id="resultSection"
+        class="results-section hidden"
+    >
+
+
+        <!-- RESULTS HEADER -->
+
+        <div class="results-header">
+
+
+            <div class="results-title-area">
+
+                <div class="section-label">
+                    YOUR TRIP IS READY
+                </div>
+
+                <h2>
+                    Your adventure awaits
+                </h2>
+
+                <p id="threadInfo">
+                    AI-generated travel plan
+                </p>
+
+            </div>
+
+
+            <div class="result-actions">
+
+                <button
+                    class="secondary-btn"
+                    onclick="copyResult()"
+                >
+
+                    📋
+
+                    Copy
+
+                </button>
+
+
+                <button
+                    class="pdf-btn"
+                    onclick="downloadPDF()"
+                >
+
+                    📄
+
+                    Download PDF
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             TRIP SUMMARY
+             ================================================= -->
+
+        <div class="summary-grid">
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon blue">
+                    ✈️
+                </div>
+
+                <div class="summary-info">
+
+                    <span>
+                        Flights
+                    </span>
+
+                    <strong>
+                        AI Selected
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon cyan">
+                    🏨
+                </div>
+
+                <div class="summary-info">
+
+                    <span>
+                        Hotels
+                    </span>
+
+                    <strong>
+                        AI Selected
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon teal">
+                    🗺️
+                </div>
+
+                <div class="summary-info">
+
+                    <span>
+                        Itinerary
+                    </span>
+
+                    <strong>
+                        AI Generated
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon purple">
+                    💰
+                </div>
+
+                <div class="summary-info">
+
+                    <span>
+                        Budget
+                    </span>
+
+                    <strong>
+                        Optimized
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             RESULT TABS
+             ================================================= -->
+
+        <div class="result-tabs">
+
+
+            <button
+                class="result-tab active"
+                onclick="switchTab(this, 'overview')"
+            >
+
+                <span>✨</span>
+
+                Overview
+
+            </button>
+
+
+            <button
+                class="result-tab"
+                onclick="switchTab(this, 'flights')"
+            >
+
+                <span>✈️</span>
+
+                Flights
+
+            </button>
+
+
+            <button
+                class="result-tab"
+                onclick="switchTab(this, 'hotels')"
+            >
+
+                <span>🏨</span>
+
+                Hotels
+
+            </button>
+
+
+            <button
+                class="result-tab"
+                onclick="switchTab(this, 'itinerary')"
+            >
+
+                <span>🗺️</span>
+
+                Itinerary
+
+            </button>
+
+
+            <button
+                class="result-tab"
+                onclick="switchTab(this, 'budget')"
+            >
+
+                <span>💰</span>
+
+                Budget
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             RESULT CONTENT
+             ================================================= -->
+
+        <div
+            id="pdfContent"
+            class="result-content"
+        >
+
+
+            <!-- OVERVIEW -->
+
+            <div
+                id="overview"
+                class="tab-panel active"
+            >
+
+                <div
+                    id="resultBox"
+                    class="markdown-content"
+                ></div>
+
+            </div>
+
+
+            <!-- FLIGHTS -->
+
+            <div
+                id="flights"
+                class="tab-panel"
+            >
+
+                <div
+                    id="flightsContent"
+                    class="empty-tab"
+                >
+
+                    <div class="empty-icon">
+                        ✈️
+                    </div>
+
+                    <h3>
+                        Flight options
+                    </h3>
+
+                    <p>
+                        Use the action below to ask TripSetter
+                        for alternative flight options.
+                    </p>
+
+                    <button
+                        class="inline-action"
+                        onclick="requestAlternative('flights')"
+                    >
+                        🔄 Find More Flights
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- HOTELS -->
+
+            <div
+                id="hotels"
+                class="tab-panel"
+            >
+
+                <div
+                    id="hotelsContent"
+                    class="empty-tab"
+                >
+
+                    <div class="empty-icon">
+                        🏨
+                    </div>
+
+                    <h3>
+                        Hotel options
+                    </h3>
+
+                    <p>
+                        Ask TripSetter to find more hotel
+                        choices for your trip.
+                    </p>
+
+                    <button
+                        class="inline-action"
+                        onclick="requestAlternative('hotels')"
+                    >
+                        🔄 Find More Hotels
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ITINERARY -->
+
+            <div
+                id="itinerary"
+                class="tab-panel"
+            >
+
+                <div
+                    id="itineraryContent"
+                    class="empty-tab"
+                >
+
+                    <div class="empty-icon">
+                        🗺️
+                    </div>
+
+                    <h3>
+                        Your itinerary
+                    </h3>
+
+                    <p>
+                        Generate a completely different route
+                        or schedule using TripSetter AI.
+                    </p>
+
+                    <button
+                        class="inline-action"
+                        onclick="requestAlternative('itinerary')"
+                    >
+                        🔄 Change Itinerary
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUDGET -->
+
+            <div
+                id="budget"
+                class="tab-panel"
+            >
+
+                <div
+                    id="budgetContent"
+                    class="empty-tab"
+                >
+
+                    <div class="empty-icon">
+                        💰
+                    </div>
+
+                    <h3>
+                        Budget optimization
+                    </h3>
+
+                    <p>
+                        Ask the AI to reduce your trip cost
+                        while keeping your important requirements.
+                    </p>
+
+                    <button
+                        class="inline-action"
+                        onclick="requestAlternative('cheaper')"
+                    >
+                        💰 Find Cheaper Options
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             SMART ACTIONS
+             ================================================= -->
+
+        <div class="smart-actions">
+
+
+            <div class="smart-actions-header">
+
+                <div>
+
+                    <div class="section-label">
+                        OPTIMIZE YOUR TRIP
+                    </div>
+
+                    <h3>
+                        Want to explore other options?
+                    </h3>
+
+                </div>
+
+                <span>
+                    AI can regenerate specific parts
+                </span>
+
+            </div>
+
+
+            <div class="action-grid">
+
+
+                <button
+                    class="smart-action"
+                    onclick="requestAlternative('flights')"
+                >
+
+                    <div class="action-icon">
+                        ✈️
+                    </div>
+
+                    <div class="action-text">
+
+                        <strong>
+                            More Flights
+                        </strong>
+
+                        <span>
+                            Different airlines & timings
+                        </span>
+
+                    </div>
+
+                    <span class="action-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="smart-action"
+                    onclick="requestAlternative('hotels')"
+                >
+
+                    <div class="action-icon">
+                        🏨
+                    </div>
+
+                    <div class="action-text">
+
+                        <strong>
+                            More Hotels
+                        </strong>
+
+                        <span>
+                            Find alternative stays
+                        </span>
+
+                    </div>
+
+                    <span class="action-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="smart-action"
+                    onclick="requestAlternative('cheaper')"
+                >
+
+                    <div class="action-icon">
+                        💰
+                    </div>
+
+                    <div class="action-text">
+
+                        <strong>
+                            Find Cheaper
+                        </strong>
+
+                        <span>
+                            Reduce the overall cost
+                        </span>
+
+                    </div>
+
+                    <span class="action-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="smart-action"
+                    onclick="requestAlternative('better')"
+                >
+
+                    <div class="action-icon">
+                        ⭐
+                    </div>
+
+                    <div class="action-text">
+
+                        <strong>
+                            Better Options
+                        </strong>
+
+                        <span>
+                            Upgrade the experience
+                        </span>
+
+                    </div>
+
+                    <span class="action-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="smart-action"
+                    onclick="requestAlternative('itinerary')"
+                >
+
+                    <div class="action-icon">
+                        🔄
+                    </div>
+
+                    <div class="action-text">
+
+                        <strong>
+                            New Itinerary
+                        </strong>
+
+                        <span>
+                            Try a different route
+                        </span>
+
+                    </div>
+
+                    <span class="action-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         HOW IT WORKS
+         ===================================================== -->
+
+    <section
+        id="how-it-works"
+        class="how-section"
+    >
+
+        <div class="section-label">
+            HOW IT WORKS
+        </div>
+
+        <h2>
+            One request. Multiple AI agents.
+        </h2>
+
+        <p class="how-description">
+            TripSetter coordinates specialized AI agents
+            to turn your travel idea into a complete plan.
+        </p>
+
+
+        <div class="workflow-grid">
+
+
+            <div class="workflow-card">
+
+                <div class="workflow-number">
+                    01
+                </div>
+
+                <div class="workflow-icon">
+                    🧠
+                </div>
+
+                <h3>
+                    Understand
+                </h3>
+
+                <p>
+                    The planner agent understands your
+                    destination, dates, travelers and preferences.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-card">
+
+                <div class="workflow-number">
+                    02
+                </div>
+
+                <div class="workflow-icon">
+                    ✈️
+                </div>
+
+                <h3>
+                    Search
+                </h3>
+
+                <p>
+                    Specialized agents research flights,
+                    hotels and travel information.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-card">
+
+                <div class="workflow-number">
+                    03
+                </div>
+
+                <div class="workflow-icon">
+                    🗺️
+                </div>
+
+                <h3>
+                    Build
+                </h3>
+
+                <p>
+                    The itinerary agent combines everything
+                    into a practical day-by-day plan.
+                </p>
+
+            </div>
+
+
+            <div class="workflow-card">
+
+                <div class="workflow-number">
+                    04
+                </div>
+
+                <div class="workflow-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    Optimize
+                </h3>
+
+                <p>
+                    TripSetter balances your preferences,
+                    experience and estimated budget.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+</main>
+
+
+
+<!-- =========================================================
+     TOAST
+     ========================================================= -->
+
+<div
+    id="toast"
+    class="toast"
+>
+
+    <span id="toastIcon">
+        ✓
+    </span>
+
+    <span id="toastMessage">
+        Done
+    </span>
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script src="/static/script.js"></script>
+
+
+</body>
+
+</html>
